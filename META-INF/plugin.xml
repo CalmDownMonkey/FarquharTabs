@@ -1,0 +1,79 @@
+<idea-plugin version="2">
+  <id>farquhar.tabs</id>
+  <name>FarquharTabs</name>
+  <version>1.0</version>
+  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+  <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <editorTabColorProvider implementation="org.jetbrains.farquhartabs.FarquharTabsColorProviderImpl"></editorTabColorProvider>
+        <projectService serviceImplementation="org.jetbrains.farquhartabs.FarquharTabsPersistenceService" serviceInterface="org.jetbrains.farquhartabs.FarquharTabsPersistenceService"/>
+    </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+      <group id="FarquharTabs" text="FarquharTabs" description="Colour Picker Menu" popup="true">
+          <add-to-group group-id="EditorTabPopupMenu" anchor="first"  />
+          <action id="TabColourRed"     icon="/icons/red.png" text="Red"                class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Red" />
+          <action id="TabColourRedOrange"    icon="/icons/red-orange.png" text="Red-orange"         class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$RedOrange" />
+          <action id="TabColourOrange"   icon="/icons/orange.png" text="Orange"           class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Orange" />
+          <action id="TabColourYellowOrange"   icon="/icons/yellow-orange.png" text="Yellow-orange"     class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$YellowOrange" />
+          <action id="TabColourYellow"    icon="/icons/yellow.png" text="Yellow"            class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Yellow" />
+          <action id="TabColourYellowGreen"    icon="/icons/yellow-green.png" text="Yellow-green"       class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$YellowGreen" />
+          <action id="TabColourGreen"    icon="/icons/green.png" text="Green"             class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Green" />
+          <action id="TabColourBlueGreen"    icon="/icons/blue-green.png" text="Blue-green"         class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$BlueGreen" />
+          <action id="TabColourBlue"    icon="/icons/blue.png" text="Blue"              class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Blue" />
+          <action id="TabColourBluePurple"    icon="/icons/blue-purple.png" text="Blue-purple"        class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$BluePurple" />
+          <action id="TabColourPurple"    icon="/icons/purple.png" text="Purple"            class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Purple" />
+          <action id="TabColourRedPurple"    icon="/icons/red-purple.png" text="Red-purple"         class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$RedPurple" />
+      </group>
+
+      <!--<group id="FarquharTabs" text="FarquharTabs" description="Colour Picker Menu" popup="true">-->
+          <!--<add-to-group group-id="EditorTabPopupMenu" anchor="first"  />-->
+
+          <!--<group id="TabColourGroupRed" text="Red" icon="/icons/red.png" description="Group of red colours" popup="true">-->
+              <!--&lt;!&ndash;add-to-group group-id="FarquharTabs" anchor="first"  /&ndash;&gt;-->
+              <!--<action id="TabColourRed1"     icon="/icons/red/1.png" text="Lightest"      class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Red1" />-->
+              <!--<action id="TabColourRed2"    icon="/icons/red/2.png" text="Light"      class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Red2" />-->
+              <!--<action id="TabColourRed3"   icon="/icons/red/3.png" text="Medium"      class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Red3" />-->
+              <!--<action id="TabColourRed4"   icon="/icons/red/4.png" text="Darker"      class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Red4" />-->
+              <!--<action id="TabColourRed5"    icon="/icons/red/5.png" text="Darkest"      class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Red5" />-->
+          <!--</group>-->
+
+          <!--<group id="TabColourGroupBlue" text="Blue" icon="/icons/blue.png" description="Group of blue colours" popup="true">-->
+              <!--&lt;!&ndash;add-to-group group-id="FarquharTabs" anchor="first"  /&ndash;&gt;-->
+              <!--<action id="TabColourBlue1"     icon="/icons/blue/1.png" text="Lightest"      class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Blue1" />-->
+              <!--<action id="TabColourBlue2"    icon="/icons/blue/2.png" text="Light"      class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Blue2" />-->
+              <!--<action id="TabColourBlue3"   icon="/icons/blue/3.png" text="Medium"      class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Blue3" />-->
+              <!--<action id="TabColourBlue4"   icon="/icons/blue/4.png" text="Darker"      class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Blue4" />-->
+              <!--<action id="TabColourBlue5"    icon="/icons/blue/5.png" text="Darkest"      class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Blue5" />-->
+          <!--</group>-->
+
+      <!--</group>-->
+  </actions>
+
+</idea-plugin>
