@@ -34,7 +34,6 @@ public abstract class FarquharTabsGroupAction extends ToggleAction implements Du
         final VirtualFile file = e.getData(CommonDataKeys.VIRTUAL_FILE);
         final EditorWindow[] allWindows = fileEditorManager.getWindows();
 
-
         for(EditorWindow aWindow : allWindows){
             int index = aWindow.findFileIndex(file);
             if(index > -1){
@@ -44,7 +43,11 @@ public abstract class FarquharTabsGroupAction extends ToggleAction implements Du
         }
 
         FarquharTabsPersistenceService farquharTabsPersistenceService = ServiceManager.getService(project, FarquharTabsPersistenceService.class);
-        farquharTabsPersistenceService.getMapValues().put(file.toString(), getColourName());
+		if (this.getClass().equals(Default.class)) {
+			farquharTabsPersistenceService.getMapValues().remove(file.toString());
+		} else {
+			farquharTabsPersistenceService.getMapValues().put(file.toString(), getColourName());
+		}
     }
 
     public static class Red    extends FarquharTabsGroupAction {Color getColour() {return FarquharColourMap.red.color;} Color getFontColour(){return FarquharColourMap.red.font;}  String getColourName() {return FarquharColourMap.red.name;}}
@@ -60,6 +63,8 @@ public abstract class FarquharTabsGroupAction extends ToggleAction implements Du
     public static class BluePurple   extends FarquharTabsGroupAction {Color getColour() {return FarquharColourMap.bluePurple.color;}   Color getFontColour(){return FarquharColourMap.bluePurple.font;}  String getColourName() {return FarquharColourMap.bluePurple.name;}}
     public static class Purple   extends FarquharTabsGroupAction {Color getColour() {return FarquharColourMap.purple.color;}  Color getFontColour(){return FarquharColourMap.purple.font;}   String getColourName() {return FarquharColourMap.purple.name;}}
     public static class RedPurple   extends FarquharTabsGroupAction {Color getColour() {return FarquharColourMap.redPurple.color;}   Color getFontColour(){return FarquharColourMap.redPurple.font;}  String getColourName() {return FarquharColourMap.redPurple.name;}}
+    
+	public static class Default   extends FarquharTabsGroupAction {Color getColour() {return null;}   Color getFontColour(){return null;}  String getColourName() {return "Clear";}}
 
 //    public static class Green extends FarquharTabsGroupAction {Color getColour() {return Color.green;}    String getColourName() {return "green";}}
 //    public static class White  extends FarquharTabsGroupAction {Color getColour() {return Color.white;}    String getColourName() {return "white";}}

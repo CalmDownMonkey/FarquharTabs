@@ -50,6 +50,7 @@
           <action id="TabColourBluePurple"    icon="/icons/blue-purple.png" text="Blue-purple"        class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$BluePurple" />
           <action id="TabColourPurple"    icon="/icons/purple.png" text="Purple"            class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Purple" />
           <action id="TabColourRedPurple"    icon="/icons/red-purple.png" text="Red-purple"         class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$RedPurple" />
+          <action id="TabColourDefault"   text="Clear"         class="org.jetbrains.farquhartabs.FarquharTabsGroupAction$Default" />
       </group>
 
       <!--<group id="FarquharTabs" text="FarquharTabs" description="Colour Picker Menu" popup="true">-->
